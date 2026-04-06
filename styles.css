@@ -1,0 +1,242 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #000;
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    max-width: 800px;
+    width: 90%;
+    padding: 2rem;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+header h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(45deg, #4a90e2, #7bb3f0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+header p {
+    font-size: 1.2rem;
+    color: #ccc;
+}
+
+.controls {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.add-student {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.add-student input {
+    padding: 0.75rem 1rem;
+    border: 2px solid #4a90e2;
+    border-radius: 8px;
+    background-color: #111;
+    color: #fff;
+    font-size: 1rem;
+    min-width: 250px;
+    transition: all 0.3s ease;
+}
+
+.add-student input:focus {
+    outline: none;
+    border-color: #7bb3f0;
+    box-shadow: 0 0 10px rgba(74, 144, 226, 0.3);
+    transform: translateY(-2px);
+}
+
+.add-student input::placeholder {
+    color: #888;
+}
+
+.btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.btn:active {
+    transform: translateY(-1px);
+}
+
+.btn-primary {
+    background: linear-gradient(45deg, #4a90e2, #7bb3f0);
+    color: white;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(45deg, #357abd, #6ba3e0);
+    box-shadow: 0 8px 20px rgba(74, 144, 226, 0.4);
+}
+
+.btn-secondary {
+    background: linear-gradient(45deg, #666, #888);
+    color: white;
+}
+
+.btn-secondary:hover {
+    background: linear-gradient(45deg, #555, #777);
+    box-shadow: 0 8px 20px rgba(102, 102, 102, 0.4);
+}
+
+.btn-success {
+    background: linear-gradient(45deg, #28a745, #34ce57);
+    color: white;
+}
+
+.btn-success:hover {
+    background: linear-gradient(45deg, #218838, #2dc653);
+    box-shadow: 0 8px 20px rgba(40, 167, 69, 0.4);
+}
+
+.student-info {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+#contador {
+    font-size: 1.1rem;
+    color: #4a90e2;
+    font-weight: 600;
+}
+
+.lista-container {
+    margin-top: 2rem;
+}
+
+.lista-alunos {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease;
+}
+
+.lista-alunos.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.lista-alunos li {
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    border: 2px solid #4a90e2;
+    border-radius: 12px;
+    padding: 1rem;
+    text-align: center;
+    font-weight: 600;
+    color: #fff;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.lista-alunos li::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(74, 144, 226, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.lista-alunos li:hover {
+    transform: translateY(-5px) scale(1.02);
+    border-color: #7bb3f0;
+    box-shadow: 0 10px 25px rgba(74, 144, 226, 0.3);
+    background: linear-gradient(135deg, #2a2a4e, #26335e);
+}
+
+.lista-alunos li:hover::before {
+    left: 100%;
+}
+
+.lista-alunos li:active {
+    transform: translateY(-2px) scale(1.01);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.lista-alunos li {
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.lista-alunos li:nth-child(even) {
+    animation-delay: 0.1s;
+}
+
+.lista-alunos li:nth-child(3n) {
+    animation-delay: 0.2s;
+}
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    .controls, .add-student {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .add-student input {
+        min-width: 200px;
+    }
+    
+    .lista-alunos {
+        grid-template-columns: 1fr;
+    }
+}

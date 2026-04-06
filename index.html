@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rei dos Sites - Lista de Alunos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Um site produtivo</h1>
+            <p>Gerenciador de Alunos</p>
+        </header>
+
+        <main>
+            <div class="controls">
+                <button id="mostrarBtn" class="btn btn-primary">Mostrar Alunos</button>
+                <button id="limparBtn" class="btn btn-secondary">Limpar Lista</button>
+            </div>
+
+            <div class="add-student">
+                <input type="text" id="novoAluno" placeholder="Digite o nome do novo aluno" maxlength="50">
+                <button id="adicionarBtn" class="btn btn-success">Adicionar Aluno</button>
+            </div>
+
+            <div class="student-info">
+                <span id="contador">Total: 0 alunos</span>
+            </div>
+
+            <div id="listaContainer" class="lista-container">
+                <ul id="alunos" class="lista-alunos"></ul>
+            </div>
+        </main>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
